@@ -10,12 +10,12 @@ spring:
         - id: BOOKING-SERVICE
           uri: lb://BOOKING-SERVICE
           predicates:
-            - Path=/booking_app/**
+            - Path=/hotel/**
 
         - id: PAYMENT-SERVICE
           uri: lb://PAYMENT-SERVICE
           predicates:
-            - Path=/payment_app/**
+            - Path=/payment/**
     discovery:
       enabled: true
 
