@@ -22,39 +22,6 @@ public class BookingApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(BookingApplication.class, args);
-
-		// Testing
-		BookingService bookingService = context.getBean(BookingService.class);
-		System.out.println("Booking Service bean : " + bookingService);
-		// create
-		System.out.println("created");
-		BookingInfoEntity bookingInfoEntity = new BookingInfoEntity();
-		bookingInfoEntity.setFromDate(LocalDate.parse("2023-08-03"));
-		bookingInfoEntity.setToDate(LocalDate.parse("2023-10-03"));
-		bookingInfoEntity.setAadharNumber("123456");
-		bookingInfoEntity.setNumOfRooms(1);
-		bookingInfoEntity.setRoomNumbers("one");
-		bookingInfoEntity.setRoomPrice(1000);
-		BookingInfoEntity created = bookingService.createBooking(bookingInfoEntity);
-		System.out.println(created);
-		// update
-		System.out.println("updated");
-		BookingInfoEntity updateBooking = new BookingInfoEntity();
-		updateBooking.setBookingId(created.getBookingId());
-		updateBooking.setFromDate(LocalDate.parse("2023-08-03"));
-		updateBooking.setToDate(LocalDate.parse("2023-10-03"));
-		updateBooking.setAadharNumber("ABIDE");
-		updateBooking.setNumOfRooms(1);
-		updateBooking.setRoomNumbers("one");
-		updateBooking.setRoomPrice(1000);
-		updateBooking.setTransactionId(1234567890);
-		updateBooking.setBookedOn(LocalDate.parse("2023-08-03"));
-		BookingInfoEntity updated = bookingService.updateBooking(updateBooking.getBookingId(), updateBooking);
-		System.out.println(updated);
-		// get
-		System.out.println("getBooking");
-		BookingInfoEntity getBooking = bookingService.getBookingDetails(updated.getBookingId());
-		System.out.println(getBooking);
 	}
 
 	@Bean
