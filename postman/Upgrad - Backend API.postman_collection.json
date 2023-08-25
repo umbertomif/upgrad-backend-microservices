@@ -132,7 +132,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"paymentMode\": \"card\",\n    \"bookingId\": \"1\",\n    \"upiId\": \"\",\n    \"cardNumber\": \"1234567890\"\n}",
+							"raw": "{\n    \"paymentMode\": \"card\",\n    \"bookingId\": 1,\n    \"upiId\": \"\",\n    \"cardNumber\": \"1234567890\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
