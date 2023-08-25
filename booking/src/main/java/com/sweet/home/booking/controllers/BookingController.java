@@ -2,7 +2,6 @@ package com.sweet.home.booking.controllers;
 
 import com.sweet.home.booking.dto.BookingInfoDTO;
 import com.sweet.home.booking.dto.TransactionDetailsDTO;
-import com.sweet.home.booking.feign.PaymentServiceClient;
 import com.sweet.home.booking.services.BookingService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "booking_app/hotel")
+@RequestMapping(value = "/hotel")
 public class BookingController {
 
     @Autowired
@@ -21,14 +20,11 @@ public class BookingController {
     @Autowired
     ModelMapper modelMapper;
 
-    @Autowired
-    PaymentServiceClient paymentServiceClient;
-
     @GetMapping(
             value = "/healthy-check"
     )
-    public Object checkStatus() {
-        return ResponseEntity.ok().body("Service is up and running fine.");
+    public ResponseEntity getStatus() {
+        return new ResponseEntity("Service is up and running fine.", HttpStatus.OK);
     }
 
     // RequestBody: fromDate, toDate, aadharNumber, numOfRooms
