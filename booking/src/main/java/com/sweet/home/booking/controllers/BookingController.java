@@ -2,6 +2,7 @@ package com.sweet.home.booking.controllers;
 
 import com.sweet.home.booking.dto.BookingInfoDTO;
 import com.sweet.home.booking.dto.TransactionDetailsDTO;
+import com.sweet.home.booking.entities.BookingInfoEntity;
 import com.sweet.home.booking.services.BookingService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,23 +28,24 @@ public class BookingController {
         return new ResponseEntity("Service is up and running fine.", HttpStatus.OK);
     }
 
-    // RequestBody: fromDate, toDate, aadharNumber, numOfRooms
     @PostMapping(
             value = "/booking",
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<BookingInfoDTO> booking(BookingInfoDTO data) {
-        return new ResponseEntity(new BookingInfoDTO(), HttpStatus.CREATED);
+    public ResponseEntity<BookingInfoDTO> booking(@RequestBody BookingInfoDTO data) {
+        BookingInfoEntity requestedBooking = modelMapper.map(data, BookingInfoEntity.class);
+        BookingInfoEntity responseBooking = bookingService.createBooking(requestedBooking);
+        BookingInfoDTO responseBookingInfoDTO = modelMapper.map(responseBooking, BookingInfoDTO.class);
+        return new ResponseEntity(responseBookingInfoDTO, HttpStatus.CREATED);
     }
 
-    // RequestBody: paymentMode, bookingId, upiId, cardNumber
     @PostMapping(
             value = "/booking/{bookingId}/transaction",
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<BookingInfoDTO> bookingTransactionById(@PathVariable(name = "bookingId") int bookingId, TransactionDetailsDTO data) {
+    public ResponseEntity<BookingInfoDTO> bookingTransactionById(@PathVariable(name = "bookingId") int bookingId, @RequestBody TransactionDetailsDTO data) {;
         return new ResponseEntity(new BookingInfoDTO(), HttpStatus.CREATED);
     }
 }
