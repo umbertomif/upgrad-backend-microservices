@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/payment_app")
+@RequestMapping(value = "/payment")
 public class TransactionController {
 
     @Autowired
@@ -20,10 +20,10 @@ public class TransactionController {
     ModelMapper modelMapper;
 
     @GetMapping(
-            value ="/healthy-check"
+            value = "/healthy-check"
     )
-    public Object checkStatus() {
-        return ResponseEntity.ok().body("Service is up and running fine.");
+    public ResponseEntity getStatus() {
+        return new ResponseEntity("Service is up and running fine.", HttpStatus.OK);
     }
 
     // RequestBody: paymentMode, bookingId, upiId, cardNumber
