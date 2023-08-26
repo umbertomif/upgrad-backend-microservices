@@ -35,16 +35,14 @@ public class PaymentController {
     public ResponseEntity<Integer> transaction(@RequestBody TransactionDetailsDTO data) {
         TransactionDetailsEntity requestedTransaction = modelMapper.map(data, TransactionDetailsEntity.class);
         TransactionDetailsEntity responseTransaction = paymentService.createTransaction(requestedTransaction);
-        TransactionDetailsDTO responseTransactionDTO = modelMapper.map(responseTransaction, TransactionDetailsDTO.class);
-        return new ResponseEntity(responseTransactionDTO, HttpStatus.CREATED);
+        return new ResponseEntity(responseTransaction.getTransactionId(), HttpStatus.CREATED);
     }
 
     @GetMapping(
             value ="/transaction/{transactionId}"
     )
-    public ResponseEntity<TransactionDetailsDTO> getTransactionById(@PathVariable(name = "transactionId") int transactionId) {
+    public ResponseEntity<TransactionDetailsEntity> getTransactionById(@PathVariable(name = "transactionId") int transactionId) {
         TransactionDetailsEntity responseTransaction = paymentService.geTransactionDetails(transactionId);
-        TransactionDetailsDTO responseTransactionDTO = modelMapper.map(responseTransaction, TransactionDetailsDTO.class);
-        return new ResponseEntity(responseTransactionDTO, HttpStatus.OK);
+        return new ResponseEntity(responseTransaction, HttpStatus.OK);
     }
 }
