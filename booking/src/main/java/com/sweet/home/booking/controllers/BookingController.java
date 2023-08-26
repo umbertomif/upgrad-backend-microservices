@@ -33,11 +33,10 @@ public class BookingController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<BookingInfoDTO> booking(@RequestBody BookingInfoDTO data) {
+    public ResponseEntity<BookingInfoEntity> booking(@RequestBody BookingInfoDTO data) {
         BookingInfoEntity requestedBooking = modelMapper.map(data, BookingInfoEntity.class);
         BookingInfoEntity responseBooking = bookingService.createBooking(requestedBooking);
-        BookingInfoDTO responseBookingInfoDTO = modelMapper.map(responseBooking, BookingInfoDTO.class);
-        return new ResponseEntity(responseBookingInfoDTO, HttpStatus.CREATED);
+        return new ResponseEntity(responseBooking, HttpStatus.CREATED);
     }
 
     @PostMapping(
@@ -45,7 +44,7 @@ public class BookingController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<BookingInfoDTO> bookingTransactionById(@PathVariable(name = "bookingId") int bookingId, @RequestBody TransactionDetailsDTO data) {;
-        return new ResponseEntity(new BookingInfoDTO(), HttpStatus.CREATED);
+    public ResponseEntity<BookingInfoEntity> bookingTransactionById(@PathVariable(name = "bookingId") int bookingId, @RequestBody TransactionDetailsDTO data) {;
+        return new ResponseEntity(new BookingInfoEntity(), HttpStatus.CREATED);
     }
 }
