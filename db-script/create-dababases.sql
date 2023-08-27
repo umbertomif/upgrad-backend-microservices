@@ -2,14 +2,14 @@ create database booking;
 use booking;
 CREATE TABLE booking (
     bookingId INT AUTO_INCREMENT PRIMARY KEY,
-    fromDate DATE,
-    toDate DATE,
+    fromDate DATETIME,
+    toDate DATETIME,
     aadharNumber VARCHAR(50),
     numOfRooms INT,
     roomNumbers TEXT,
     roomPrice INT NOT NULL DEFAULT 1000,
     transactionId INT DEFAULT 0,
-    bookedOn DATE
+    bookedOn DATETIME
 );
 
 create database payment;

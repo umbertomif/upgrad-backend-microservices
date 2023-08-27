@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "7942c247-6c2b-44d3-8862-e2b24ebd6c32",
+		"_postman_id": "08909fb9-2cef-4073-a9ff-443bc08b2a72",
 		"name": "Upgrad - Backend API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "13431245"
 	},
 	"item": [
 		{
@@ -13,18 +14,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:9191/hotel/healthy-check",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9191",
-							"path": [
-								"hotel",
-								"healthy-check"
-							]
-						}
+						"url": "http://localhost:9191/hotel/healthy-check"
 					},
 					"response": []
 				},
@@ -41,25 +31,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"fromDate\": \"2023-08-10\",\n    \"toDate\": \"2023-10-03\",\n    \"aadharNumber\": \"ABCDE\",\n    \"numOfRooms\": \"2\",\n    \"roomNumbers\": \"one and two\",\n    \"roomPrice\": \"1000\"\n}",
+							"raw": "{\n    \"fromDate\": \"2023-08-10\",\n    \"toDate\": \"2023-08-12\",\n    \"aadharNumber\": \"ABCDjnE\",\n    \"numOfRooms\": 10\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:9191/hotel/booking",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9191",
-							"path": [
-								"hotel",
-								"booking"
-							]
-						}
+						"url": "http://localhost:9191/hotel/booking"
 					},
 					"response": []
 				},
@@ -77,20 +56,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:9191/hotel/booking/1/transaction",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9191",
-							"path": [
-								"hotel",
-								"booking",
-								"1",
-								"transaction"
-							]
-						}
+						"url": "http://localhost:9191/hotel/booking/1/transaction"
 					},
 					"response": []
 				}
@@ -104,18 +70,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:9191/payment/healthy-check",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9191",
-							"path": [
-								"payment",
-								"healthy-check"
-							]
-						}
+						"url": "http://localhost:9191/payment/healthy-check"
 					},
 					"response": []
 				},
@@ -139,18 +94,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:9191/payment/transaction",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9191",
-							"path": [
-								"payment",
-								"transaction"
-							]
-						}
+						"url": "http://localhost:9191/payment/transaction"
 					},
 					"response": []
 				},
@@ -177,18 +121,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:9191/payment/transaction",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9191",
-							"path": [
-								"payment",
-								"transaction"
-							]
-						}
+						"url": "http://localhost:9191/payment/transaction"
 					},
 					"response": []
 				}

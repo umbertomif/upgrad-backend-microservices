@@ -1,7 +1,6 @@
 package com.sweet.home.booking.entities;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity(name = "booking")
@@ -13,10 +12,10 @@ public class BookingInfoEntity {
     private int bookingId;
 
     @Column(name = "fromDate", nullable = true)
-    private LocalDate fromDate;
+    private LocalDateTime fromDate;
 
     @Column(name = "toDate", nullable = true)
-    private LocalDate toDate;
+    private LocalDateTime toDate;
 
     @Column(name = "aadharNumber", nullable = true)
     private String aadharNumber;
@@ -34,7 +33,7 @@ public class BookingInfoEntity {
     private int transactionId;
 
     @Column(name = "bookedOn", nullable = true)
-    private LocalDate bookedOn;
+    private LocalDateTime bookedOn;
 
     public int getBookingId() {
         return bookingId;
@@ -44,19 +43,19 @@ public class BookingInfoEntity {
         this.bookingId = bookingId;
     }
 
-    public LocalDate getFromDate() {
+    public LocalDateTime getFromDate() {
         return fromDate;
     }
 
-    public void setFromDate(LocalDate fromDate) {
+    public void setFromDate(LocalDateTime fromDate) {
         this.fromDate = fromDate;
     }
 
-    public LocalDate getToDate() {
+    public LocalDateTime getToDate() {
         return toDate;
     }
 
-    public void setToDate(LocalDate toDate) {
+    public void setToDate(LocalDateTime toDate) {
         this.toDate = toDate;
     }
 
@@ -100,11 +99,11 @@ public class BookingInfoEntity {
         this.transactionId = transactionId;
     }
 
-    public LocalDate getBookedOn() {
+    public LocalDateTime getBookedOn() {
         return bookedOn;
     }
 
-    public void setBookedOn(LocalDate bookedOn) {
+    public void setBookedOn(LocalDateTime bookedOn) {
         this.bookedOn = bookedOn;
     }
 
