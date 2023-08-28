@@ -11,6 +11,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping(value = "/hotel")
 public class BookingController {
@@ -44,7 +48,9 @@ public class BookingController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<BookingInfoEntity> bookingTransactionById(@PathVariable(name = "bookingId") int bookingId, @RequestBody TransactionDetailsDTO data) {;
-        return new ResponseEntity(new BookingInfoEntity(), HttpStatus.CREATED);
+    public ResponseEntity<BookingInfoEntity> bookingTransactionById(@PathVariable(name = "bookingId") int bookingId, @Valid @RequestBody TransactionDetailsDTO data) {;
+        BookingInfoEntity booking = bookingService.makePayment(bookingId, data);
+
+        return new ResponseEntity(booking, HttpStatus.CREATED);
     }
 }
