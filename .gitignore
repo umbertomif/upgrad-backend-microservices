@@ -7,6 +7,16 @@
 # BlueJ files
 *.ctxt
 
+.idea
+
+/booking/target/
+/payment/target/
+/gateway/target/
+/configserver/target/
+/service.registry/target/
+
+.DS_Store
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
