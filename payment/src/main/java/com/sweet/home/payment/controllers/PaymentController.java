@@ -35,7 +35,7 @@ public class PaymentController {
     public ResponseEntity<Integer> transaction(@RequestBody TransactionDetailsDTO data) {
         TransactionDetailsEntity requestedTransaction = modelMapper.map(data, TransactionDetailsEntity.class);
         TransactionDetailsEntity responseTransaction = paymentService.createTransaction(requestedTransaction);
-        return new ResponseEntity(responseTransaction.getTransactionId(), HttpStatus.CREATED);
+        return new ResponseEntity(responseTransaction.getId(), HttpStatus.CREATED);
     }
 
     @GetMapping(

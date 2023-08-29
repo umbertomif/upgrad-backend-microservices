@@ -6,7 +6,7 @@ import javax.validation.constraints.Pattern;
 
 public class TransactionDetailsDTO {
 
-    private int transactionId;
+    private int id;
 
     @NotBlank(message = "paymentMode cannot be null")
     @Pattern(regexp = "^(CARD|UPI)$", message = "Invalid mode of payment")
@@ -19,12 +19,10 @@ public class TransactionDetailsDTO {
 
     private String cardNumber;
 
-    public int getTransactionId() {
-        return transactionId;
-    }
+    public int getId() { return id; }
 
-    public void setTransactionId(int transactionId) {
-        this.transactionId = transactionId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getPaymentMode() {
