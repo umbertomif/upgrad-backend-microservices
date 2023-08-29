@@ -1,15 +1,18 @@
 package com.sweet.home.payment.dto;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 public class TransactionDetailsDTO {
 
     private int transactionId;
 
     @NotBlank(message = "paymentMode cannot be null")
+    @Pattern(regexp = "^(CARD|UPI)$", message = "Invalid mode of payment")
     private String paymentMode;
 
-    @NotBlank(message = "bookingId cannot be null")
+    @NotNull(message = "bookingId cannot be null")
     private int bookingId;
 
     private String upiId;

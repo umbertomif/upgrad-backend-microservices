@@ -4,6 +4,7 @@ import com.sweet.home.booking.dto.BookingInfoDTO;
 import com.sweet.home.booking.dto.TransactionDetailsDTO;
 import com.sweet.home.booking.entities.BookingInfoEntity;
 import com.sweet.home.booking.services.BookingService;
+import com.sweet.home.booking.utils.Utils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,8 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/hotel")
@@ -49,8 +48,8 @@ public class BookingController {
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<BookingInfoEntity> bookingTransactionById(@PathVariable(name = "bookingId") int bookingId, @Valid @RequestBody TransactionDetailsDTO data) {;
-        BookingInfoEntity booking = bookingService.makePayment(bookingId, data);
-
-        return new ResponseEntity(booking, HttpStatus.CREATED);
+        BookingInfoEntity responseBooking = bookingService.makePayment(bookingId, data);
+        Utils.generateBookingConfirmationMessage(responseBooking);
+        return new ResponseEntity(responseBooking, HttpStatus.CREATED);
     }
 }
