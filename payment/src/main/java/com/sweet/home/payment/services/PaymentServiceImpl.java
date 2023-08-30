@@ -4,6 +4,8 @@ import com.sweet.home.payment.repository.TransactionRepository;
 import com.sweet.home.payment.entities.TransactionDetailsEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class PaymentServiceImpl implements PaymentService {
@@ -18,6 +20,11 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public TransactionDetailsEntity geTransactionDetails(int id) {
-        return repository.findById(id).get();
+        Optional<TransactionDetailsEntity> optionalTransactionDetails = repository.findById(id);
+        if (optionalTransactionDetails.isPresent()) {
+            return optionalTransactionDetails.get();
+        } else {
+            throw new NoSuchElementException("Invalid Transaction Id");
+        }
     }
 }

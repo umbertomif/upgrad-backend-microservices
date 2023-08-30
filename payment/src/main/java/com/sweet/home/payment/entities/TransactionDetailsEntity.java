@@ -7,8 +7,8 @@ public class TransactionDetailsEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "transactionId")
-    private int transactionId;
+    @Column(name = "id")
+    private int id;
 
     @Column(name = "paymentMode", nullable = false)
     private String paymentMode;
@@ -22,12 +22,12 @@ public class TransactionDetailsEntity {
     @Column(name = "cardNumber", nullable = true)
     private String cardNumber;
 
-    public int getTransactionId() {
-        return transactionId;
+    public int getId() {
+        return id;
     }
 
-    public void setTransactionId(int transactionId) {
-        this.transactionId = transactionId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getPaymentMode() {
@@ -65,7 +65,7 @@ public class TransactionDetailsEntity {
     @Override
     public String toString() {
         return "TransactionDetailsEntity{" +
-                "transactionId=" + transactionId +
+                "id=" + id +
                 ", paymentMode='" + paymentMode + '\'' +
                 ", bookingId=" + bookingId +
                 ", upiId='" + upiId + '\'' +
